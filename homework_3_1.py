@@ -28,18 +28,21 @@
 # Якщо сьогодні 5 травня 2021 року, виклик get_days_from_today("2021-10-09") повинен повернути 157, оскільки 9 жовтня 2021 року є на 157 днів пізніше від 5 травня 2021 року.
 
 
-
 from datetime import datetime
 
 date = input()
 
+
 def get_days_from_today(date):
-  try:
-    datetime_obj = datetime.strptime(date, '%Y-%m-%d')
-  except ValueError:
-    print('wrong format')
-  today_day = datetime.today()
-  delta = today_day - datetime_obj
-  days = delta.days
-  return days
+    try:
+        datetime_obj = datetime.strptime(date, "%Y-%m-%d")
+        today_day = datetime.today()
+        delta = today_day - datetime_obj
+        days = delta.days
+        return days
+    except ValueError:
+        print("wrong format")
+    return None
+
+
 print(get_days_from_today(date))
