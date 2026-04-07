@@ -42,20 +42,20 @@ max = 50
 quantity = 5
 
 def get_numbers_ticket(min, max, quantity):
-  if(
-    min < 1 or
-    max > 1000 or
-    quantity < min or
-    quantity > (max - min + 1)
-  ):
-    return None
-  else:
-    pass
-    random_set = set()
-  while len(random_set) < quantity:
-      random_set.add(random.randint(min,max))
-      random_list = list(random_set)
+    if(
+        min < 1 or
+        max > 1000 or
+        min >= max or
+        quantity < 1 or
+        quantity > (max - min + 1)
+        ):
+        return []
 
-  return sorted(random_list)
+    random_set = set()
+    while len(random_set) < quantity:
+          random_set.add(random.randint(min,max))
+
+    random_list = list(random_set)
+    return sorted(random_list)
 
 print(get_numbers_ticket(min,max,quantity))
